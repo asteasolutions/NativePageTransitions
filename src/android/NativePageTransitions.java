@@ -576,12 +576,13 @@ public class NativePageTransitions extends CordovaPlugin {
                           if (fixedImageViewBottom != null) {
                             fixedImageViewBottom.setImageBitmap(null);
                           }
-                          imageView.setImageBitmap(null);
                         }
                       });
                     }
                   }, 20);
                 }
+                // Always clear Image Bitmap to avoid compatibility problems
+                imageView.setImageBitmap(null);
                 bringToFront(getView());
                 _callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
               }
